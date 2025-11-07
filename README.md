@@ -7,20 +7,18 @@
    open LiveCodingInterview.xcodeproj
    ```
 
-2. **Open the file to edit**:
-   - Navigate to `LiveCodingInterview/OrderManager.swift`
-   - This file contains **3 functions** you need to implement
+2. **Open the files to edit**:
+   - Navigate to `LiveCodingInterview/OrderManager.swift` (Tasks 1-3)
+   - Navigate to `LiveCodingInterview/ConcurrencyManager.swift` (Task 4)
 
 3. **Run the tests**:
    - Press `⌘U` to run all tests
-   - All 16 tests will fail initially (expected)
-   - After implementing each function, press `⌘U` again to see progress
+   - All 22 tests will fail initially (expected)
+   - After implementing each task, press `⌘U` again to see progress
 
 ---
 
 ## Your Tasks
-
-Implement **3 functions** in `OrderManager.swift`:
 
 ### Task 1: Array Filtering & Sorting
 
@@ -79,6 +77,27 @@ Input: [Order(id: "1", customerId: "A", amount: 100),
 
 getTopCustomers(orders: input, limit: 2)
 → [("C", 300.0), ("B", 200.0)]
+```
+
+---
+
+### Task 4: Concurrency & Thread Safety
+
+Fix the data race in `ConcurrencyManager.swift` and convert to modern Swift concurrency.
+
+The current implementation has thread-safety issues.
+
+**Example**:
+```swift
+// Current (unsafe):
+func updateOrders(_ newOrders: [Order]) {
+    DispatchQueue.global().async {
+        self.orders = newOrders
+    }
+}
+
+// Expected (safe):
+// Refactor to use async/await and proper thread safety
 ```
 
 ---
