@@ -11,10 +11,11 @@
    - Navigate to `LiveCodingInterview/OrderManager.swift` (Tasks 1-3)
    - Navigate to `LiveCodingInterview/ConcurrencyManager.swift` (Task 4)
    - Navigate to `LiveCodingInterview/MemoryManager.swift` (Task 5)
+   - Navigate to `LiveCodingInterview/OrderPublisher.swift` (Task 6)
 
 3. **Run the tests**:
    - Press `⌘U` to run all tests
-   - All 28 tests will fail initially (expected)
+   - All 34 tests will fail initially (expected)
    - After implementing each task, press `⌘U` again to see progress
 
 ---
@@ -119,6 +120,31 @@ orderCache?.onOrdersUpdated = { newOrders in
 
 // Expected (no leak):
 // Fix retain cycles using weak/unowned self
+```
+
+---
+
+### Task 6: Combine
+
+Fix the Combine publisher implementation in `OrderPublisher.swift`.
+
+The current implementation has issues.
+
+**Example**:
+```swift
+func getOrdersPublisher() -> AnyPublisher<[Order], Never> {
+    // TODO: Implement
+}
+
+func subscribeToHighValueOrders(threshold: Double, handler: @escaping ([Order]) -> Void) {
+    orderSubject
+        .map { orders in
+            orders.filter { $0.amount >= threshold }
+        }
+        .sink { filteredOrders in
+            handler(filteredOrders)
+        }
+}
 ```
 
 ---
