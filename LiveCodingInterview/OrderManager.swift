@@ -33,7 +33,7 @@ class OrderManager {
     /// - Returns: Array of orders for that customer, sorted by amount descending
     func getCustomerOrders(orders: [Order], customerId: String) -> [Order] {
         // TODO: Implement using filter and sorted
-        fatalError("Not implemented")
+        return []
     }
 
     // MARK: - Task 2: Dictionary Aggregation (Medium - 20 min)
@@ -55,7 +55,7 @@ class OrderManager {
     /// - Returns: Dictionary mapping customerId to total amount spent
     func getTotalSpendingPerCustomer(orders: [Order]) -> [String: Double] {
         // TODO: Implement using dictionary and reduce/iteration
-        fatalError("Not implemented")
+        return [:]
     }
 
     // MARK: - Task 3: Top N with Sorting (Hard - 25 min)
@@ -81,6 +81,6 @@ class OrderManager {
     func getTopCustomers(orders: [Order], limit: Int) -> [(customerId: String, totalSpending: Double)] {
         // TODO: Implement using dictionary aggregation + sorting + prefix
         // Hint: Reuse getTotalSpendingPerCustomer logic
-        fatalError("Not implemented")
+        return []
     }
 }
