@@ -27,6 +27,7 @@
 		E84698DE2EBE466700E4ECD8 /* LiveCodingInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveCodingInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84698EB2EBE466800E4ECD8 /* LiveCodingInterviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveCodingInterviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84698F52EBE466800E4ECD8 /* LiveCodingInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveCodingInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8469A042EBE470000E4ECD8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +39,6 @@
 		E84698EE2EBE466800E4ECD8 /* LiveCodingInterviewTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LiveCodingInterviewTests;
-			sourceTree = "<group>";
-		};
-		E84698F82EBE466800E4ECD8 /* LiveCodingInterviewUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LiveCodingInterviewUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +71,9 @@
 		E84698D52EBE466700E4ECD8 = {
 			isa = PBXGroup;
 			children = (
+				E8469A042EBE470000E4ECD8 /* README.md */,
 				E84698E02EBE466700E4ECD8 /* LiveCodingInterview */,
 				E84698EE2EBE466800E4ECD8 /* LiveCodingInterviewTests */,
-				E84698F82EBE466800E4ECD8 /* LiveCodingInterviewUITests */,
 				E84698DF2EBE466700E4ECD8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,9 +148,6 @@
 			);
 			dependencies = (
 				E84698F72EBE466800E4ECD8 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				E84698F82EBE466800E4ECD8 /* LiveCodingInterviewUITests */,
 			);
 			name = LiveCodingInterviewUITests;
 			packageProductDependencies = (
