@@ -5,7 +5,15 @@ import Combine
 
 class OrderPublisher {
 
-    /// Fix the Combine implementation below
+    /// Implement the missing functionality and fix subscription issues.
+    ///
+    /// Requirements:
+    /// - getOrdersPublisher() should return a publisher that emits order updates
+    /// - Subscriptions should persist across multiple publish events
+    /// - Multiple subscribers should be able to receive updates
+    /// - All tests should pass
+    ///
+    /// Current implementation (incomplete):
 
     private var orders: [Order] = []
     private let orderSubject = PassthroughSubject<[Order], Never>()
@@ -30,5 +38,5 @@ class OrderPublisher {
         orderSubject.send(newOrders)
     }
 
-    // TODO: Fix the issues above
+    // TODO: Implement and fix above to meet requirements
 }

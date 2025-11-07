@@ -85,67 +85,36 @@ getTopCustomers(orders: input, limit: 2)
 
 ### Task 4: Concurrency & Thread Safety
 
-Fix the data race in `ConcurrencyManager.swift` and convert to modern Swift concurrency.
+Refactor `ConcurrencyManager.swift` to use modern Swift concurrency and make it thread-safe.
 
-The current implementation has thread-safety issues.
-
-**Example**:
-```swift
-// Current (unsafe):
-func updateOrders(_ newOrders: [Order]) {
-    DispatchQueue.global().async {
-        self.orders = newOrders
-    }
-}
-
-// Expected (safe):
-// Refactor to use async/await and proper thread safety
-```
+**Requirements**:
+- Convert callback-based methods to async/await
+- Ensure thread-safe access to the orders array (no data races)
+- All tests should pass without crashes or race conditions
 
 ---
 
 ### Task 5: Memory Management
 
-Fix the retain cycles in `MemoryManager.swift`.
+Fix the memory leaks in `MemoryManager.swift` caused by retain cycles.
 
-The current implementation has memory leaks.
-
-**Example**:
-```swift
-// Current (memory leak):
-orderCache?.onOrdersUpdated = { newOrders in
-    self.orders = newOrders
-    self.processOrders()
-}
-
-// Expected (no leak):
-// Fix retain cycles using weak/unowned self
-```
+**Requirements**:
+- MemoryManager and OrderCache should properly deallocate when no longer in use
+- Closures should not create strong reference cycles
+- All functionality should continue to work correctly
+- All tests should pass
 
 ---
 
 ### Task 6: Combine
 
-Fix the Combine publisher implementation in `OrderPublisher.swift`.
+Implement missing functionality and fix subscription issues in `OrderPublisher.swift`.
 
-The current implementation has issues.
-
-**Example**:
-```swift
-func getOrdersPublisher() -> AnyPublisher<[Order], Never> {
-    // TODO: Implement
-}
-
-func subscribeToHighValueOrders(threshold: Double, handler: @escaping ([Order]) -> Void) {
-    orderSubject
-        .map { orders in
-            orders.filter { $0.amount >= threshold }
-        }
-        .sink { filteredOrders in
-            handler(filteredOrders)
-        }
-}
-```
+**Requirements**:
+- `getOrdersPublisher()` should return a publisher that emits order updates
+- Subscriptions should persist across multiple publish events
+- Multiple subscribers should be able to receive updates
+- All tests should pass
 
 ---
 

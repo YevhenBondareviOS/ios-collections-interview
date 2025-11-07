@@ -4,8 +4,15 @@ import Foundation
 
 class ConcurrencyManager {
 
-    /// Fix the data race and convert to modern Swift concurrency
-    /// The code below has thread-safety issues. Refactor it.
+    /// Refactor this code to use modern Swift concurrency (async/await)
+    /// and make it thread-safe.
+    ///
+    /// Requirements:
+    /// - Convert callback-based methods to async/await
+    /// - Ensure thread-safe access to the orders array (no data races)
+    /// - All tests should pass without crashes or race conditions
+    ///
+    /// Current implementation (has issues):
 
     private var orders: [Order] = []
 
@@ -21,5 +28,5 @@ class ConcurrencyManager {
         }
     }
 
-    // TODO: Refactor the above code to be thread-safe using modern Swift concurrency
+    // TODO: Refactor above to meet requirements
 }
