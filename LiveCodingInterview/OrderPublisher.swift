@@ -16,26 +16,21 @@ class OrderPublisher {
     /// Current implementation (incomplete):
 
     private var orders: [Order] = []
-    private let orderSubject = PassthroughSubject<[Order], Never>()
+    private let orderSubject = CurrentValueSubject<[Order], Never>([])
 
+    func publishOrders(_ newOrders: [Order]) {
+        orders = newOrders
+        orderSubject.send(newOrders)
+    }
+    
     func getOrdersPublisher() -> AnyPublisher<[Order], Never> {
         // TODO: Implement
         fatalError("Not implemented")
     }
 
     func subscribeToHighValueOrders(threshold: Double, handler: @escaping ([Order]) -> Void) {
-        orderSubject
-            .map { orders in
-                orders.filter { $0.amount >= threshold }
-            }
-            .sink { filteredOrders in
-                handler(filteredOrders)
-            }
-    }
-
-    func publishOrders(_ newOrders: [Order]) {
-        orders = newOrders
-        orderSubject.send(newOrders)
+        // TODO: After this method called once handler should be called with a list of orders having order.amount >= threshold each time the orders array updates
+        fatalError("Not implemented")
     }
 
     // TODO: Implement and fix above to meet requirements
