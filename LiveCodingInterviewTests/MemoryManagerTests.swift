@@ -80,4 +80,24 @@ final class MemoryManagerTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
         XCTAssertTrue(true, "Callbacks should still work after fixing retain cycles")
     }
+    
+    func test_task5_multipleManagers_deallocate_AI_Generated() {
+        //This test is generated with AI
+        // Given
+        var weakManagers: [MemoryManager?] = []
+        
+        // When
+        autoreleasepool {
+            for _ in 0..<10 {
+                let manager = MemoryManager()
+                manager.setupOrderCache()
+                manager.processOrders()
+                weakManagers.append(manager)
+            }
+        }
+        
+        // Then - All managers should deallocate
+        let nonNilCount = weakManagers.compactMap { $0 }.count
+        XCTAssertEqual(nonNilCount, 0, "AI Generated test: All MemoryManagers should deallocate")
+    }
 }
